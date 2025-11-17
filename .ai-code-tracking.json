@@ -1,0 +1,440 @@
+{
+  "version": "1.0",
+  "records": [
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/utils/database.java",
+      "timestamp": 1762860641174,
+      "startOffset": 0,
+      "endOffset": 54,
+      "codeContent": "package com.ejemplo.utils;\n\npublic class database {\n}\n",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 5
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/utils/database.java",
+      "timestamp": 1762860665655,
+      "startOffset": 12,
+      "endOffset": 1005,
+      "codeContent": "tuapp.utils;\n\nimport java.sql.Connection;\nimport java.sql.DriverManager;\nimport java.sql.SQLException;\nimport java.sql.Statement;\n\npublic class Database {\n    private static final String DB_URL \u003d \"jdbc:sqlite:playlist.db\";\n\n    static {\n        // Crear tabla si no existe\n        try (Connection conn \u003d getConnection();\n             Statement stmt \u003d conn.createStatement()) {\n            String sql \u003d \"CREATE TABLE IF NOT EXISTS videos (\" +\n                         \"id INTEGER PRIMARY KEY AUTOINCREMENT,\" +\n                         \"nombre TEXT NOT NULL,\" +\n                         \"link TEXT NOT NULL,\" +\n                         \"likes INTEGER DEFAULT 0,\" +\n                         \"favorito INTEGER DEFAULT 0\" +\n                         \");\";\n            stmt.execute(sql);\n        } catch (SQLException e) {\n            e.printStackTrace();\n        }\n    }\n\n    public static Connection getConnection() throws SQLException {\n        return DriverManager.getConnection(DB_URL);\n    }\n}\n",
+      "aiProbability": 70,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 32
+    },
+    {
+      "filePath": "/database.java",
+      "timestamp": 1762860670221,
+      "startOffset": 13,
+      "endOffset": 35,
+      "codeContent": "jeIntellijIdeaRulezzz ",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "/Database.java",
+      "timestamp": 1762860828431,
+      "startOffset": 911,
+      "endOffset": 931,
+      "codeContent": "IntellijIdeaRulezzz ",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/utils/Database.java",
+      "timestamp": 1762861389873,
+      "startOffset": 362,
+      "endOffset": 1703,
+      "codeContent": "            String sql \u003d \"CREATE TABLE IF NOT EXISTS videos (\" +\n                    \"id INTEGER PRIMARY KEY AUTOINCREMENT,\" +\n                    \"nombre TEXT NOT NULL,\" +\n                    \"link TEXT NOT NULL,\" +\n                    \");\";\n            stmt.execute(sql);\n        } catch (SQLException e) {\n            e.printStackTrace();\n        }\n\n        try (Connection conn \u003d getConnection();\n             Statement stmt \u003d conn.createStatement()) {\n            String sql \u003d \"CREATE TABLE IF NOT EXISTS usuarios (\" +\n                    \"email TEXT PRIMARY KEY ,\" +\n                    \"nombre TEXT NOT NULL,\" +\n                    \"password TEXT NOT NULL,\" +\n                    \");\";\n            stmt.execute(sql);\n        } catch (SQLException e) {\n            e.printStackTrace();\n        }\n\n        try (Connection conn \u003d getConnection();\n             Statement stmt \u003d conn.createStatement()) {\n            String sql \u003d \"CREATE TABLE IF NOT EXISTS likes (\" +\n                    \"email_usuario TEXT NOT NULL,\" +\n                    \"id_video TEXT NOT NULL,\" +\n                    \");\";\n            stmt.execute(sql);\n        } catch (SQLException e) {\n            e.printStackTrace();\n        }\n    }\n\n    public static Connection getConnection() throws SQLException {\n        return DriverManager.getConnection(DB_URL);\n    }\n}\n",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 39
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/model/Video.java",
+      "timestamp": 1762861562441,
+      "startOffset": 0,
+      "endOffset": 51,
+      "codeContent": "package com.ejemplo.model;\n\npublic class Video {\n}\n",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 5
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/model/Video.java",
+      "timestamp": 1762861566337,
+      "startOffset": 49,
+      "endOffset": 563,
+      "codeContent": "    private int id;\n    private String nombre;\n    private String link;\n\n    public Video() {}\n\n    public Video(String nombre, String link) {\n        this.nombre \u003d nombre;\n        this.link \u003d link;\n    }\n\n    public int getId() { return id; }\n    public void setId(int id) { this.id \u003d id; }\n\n    public String getNombre() { return nombre; }\n    public void setNombre(String nombre) { this.nombre \u003d nombre; }\n\n    public String getLink() { return link; }\n    public void setLink(String link) { this.link \u003d link; }\n",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 20
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/model/Usuario.java",
+      "timestamp": 1762861580248,
+      "startOffset": 0,
+      "endOffset": 53,
+      "codeContent": "package com.ejemplo.model;\n\npublic class Usuario {\n}\n",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 5
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/model/Usuario.java",
+      "timestamp": 1762861583903,
+      "startOffset": 51,
+      "endOffset": 681,
+      "codeContent": "    private String email;\n    private String nombre;\n    private String password;\n\n    public Usuario() {}\n\n    public Usuario(String email, String nombre, String password) {\n        this.email \u003d email;\n        this.nombre \u003d nombre;\n        this.password \u003d password;\n    }\n\n    public String getEmail() { return email; }\n    public void setEmail(String email) { this.email \u003d email; }\n\n    public String getNombre() { return nombre; }\n    public void setNombre(String nombre) { this.nombre \u003d nombre; }\n\n    public String getPassword() { return password; }\n    public void setPassword(String password) { this.password \u003d password; }\n",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 21
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/model/Like.java",
+      "timestamp": 1762861598554,
+      "startOffset": 0,
+      "endOffset": 50,
+      "codeContent": "package com.ejemplo.model;\n\npublic class Like {\n}\n",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 5
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/model/Like.java",
+      "timestamp": 1762861603260,
+      "startOffset": 48,
+      "endOffset": 531,
+      "codeContent": "    private String emailUsuario;\n    private int idVideo;\n\n    public Like() {}\n\n    public Like(String emailUsuario, int idVideo) {\n        this.emailUsuario \u003d emailUsuario;\n        this.idVideo \u003d idVideo;\n    }\n\n    public String getEmailUsuario() { return emailUsuario; }\n    public void setEmailUsuario(String emailUsuario) { this.emailUsuario \u003d emailUsuario; }\n\n    public int getIdVideo() { return idVideo; }\n    public void setIdVideo(int idVideo) { this.idVideo \u003d idVideo; }\n",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 16
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/dao/VideoDAO.java",
+      "timestamp": 1762861739086,
+      "startOffset": 0,
+      "endOffset": 52,
+      "codeContent": "package com.ejemplo.dao;\n\npublic class VideoDAO {\n}\n",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 5
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/dao/VideoDAO.java",
+      "timestamp": 1762861741023,
+      "startOffset": 26,
+      "endOffset": 1664,
+      "codeContent": "import com.ejemplo.model.Video;\nimport com.ejemplo.utils.Database;\n\nimport java.sql.*;\nimport java.util.ArrayList;\nimport java.util.List;\n\npublic class VideoDAO {\n\n    public void agregar(Video video) {\n        String sql \u003d \"INSERT INTO videos(nombre, link) VALUES(?, ?)\";\n        try (Connection conn \u003d Database.getConnection();\n             PreparedStatement ps \u003d conn.prepareStatement(sql)) {\n            ps.setString(1, video.getNombre());\n            ps.setString(2, video.getLink());\n            ps.executeUpdate();\n        } catch (SQLException e) {\n            e.printStackTrace();\n        }\n    }\n\n    public List\u003cVideo\u003e listar() {\n        List\u003cVideo\u003e lista \u003d new ArrayList\u003c\u003e();\n        String sql \u003d \"SELECT * FROM videos ORDER BY id DESC\";\n        try (Connection conn \u003d Database.getConnection();\n             Statement st \u003d conn.createStatement();\n             ResultSet rs \u003d st.executeQuery(sql)) {\n\n            while (rs.next()) {\n                Video v \u003d new Video();\n                v.setId(rs.getInt(\"id\"));\n                v.setNombre(rs.getString(\"nombre\"));\n                v.setLink(rs.getString(\"link\"));\n                lista.add(v);\n            }\n\n        } catch (SQLException e) {\n            e.printStackTrace();\n        }\n        return lista;\n    }\n\n    public void eliminar(int id) {\n        String sql \u003d \"DELETE FROM videos WHERE id \u003d ?\";\n        try (Connection conn \u003d Database.getConnection();\n             PreparedStatement ps \u003d conn.prepareStatement(sql)) {\n            ps.setInt(1, id);\n            ps.executeUpdate();\n        } catch (SQLException e) {\n            e.printStackTrace();\n        }\n    }",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 52
+    },
+    {
+      "filePath": "/VideoDAO.java",
+      "timestamp": 1762861906478,
+      "startOffset": 1314,
+      "endOffset": 1334,
+      "codeContent": "IntellijIdeaRulezzz ",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "/Video.java",
+      "timestamp": 1762861960026,
+      "startOffset": 126,
+      "endOffset": 146,
+      "codeContent": "IntellijIdeaRulezzz ",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/utils/Database.java",
+      "timestamp": 1762862005265,
+      "startOffset": 612,
+      "endOffset": 633,
+      "codeContent": "\n                    ",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 2
+    },
+    {
+      "filePath": "/Database.java",
+      "timestamp": 1762862037761,
+      "startOffset": 635,
+      "endOffset": 679,
+      "codeContent": "d_usuario INTEGER )\"+\n                    \"F",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 2
+    },
+    {
+      "filePath": "/VideoDAO.java",
+      "timestamp": 1762862084347,
+      "startOffset": 282,
+      "endOffset": 304,
+      "codeContent": ",iIntellijIdeaRulezzz ",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "/VideoDAO.java",
+      "timestamp": 1762862190324,
+      "startOffset": 300,
+      "endOffset": 580,
+      "codeContent": "_ususario) VALUES(?, ?, ?)\";\n        try (Connection conn \u003d Database.getConnection();\n             PreparedStatement ps \u003d conn.prepareStatement(sql)) {\n            ps.setString(1, video.getNombre());\n            ps.setString(2, video.getLink());\n            ps.setInt(3, idUsuario",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 6
+    },
+    {
+      "filePath": "/Video.java",
+      "timestamp": 1762862535220,
+      "startOffset": 642,
+      "endOffset": 700,
+      "codeContent": "\n    public int getIdUsuario() { return idUsuario; }\n    p",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 3
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/model/Video.java",
+      "timestamp": 1762862536153,
+      "startOffset": 700,
+      "endOffset": 770,
+      "codeContent": "ublic void setIdUsuario(int idUsuario) { this.idUsuario \u003d idUsuario; }",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "/Usuario.java",
+      "timestamp": 1762862550266,
+      "startOffset": 56,
+      "endOffset": 76,
+      "codeContent": "IntellijIdeaRulezzz ",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/model/Usuario.java",
+      "timestamp": 1762862551181,
+      "startOffset": 57,
+      "endOffset": 77,
+      "codeContent": "ivate int idUsuario;",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "/Database.java",
+      "timestamp": 1762862640207,
+      "startOffset": 933,
+      "endOffset": 995,
+      "codeContent": "id INTEGER PRIMARY KEY AUTOINCREMENT,\" +\n                    \"",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 2
+    },
+    {
+      "filePath": "/Usuario.java",
+      "timestamp": 1762862712536,
+      "startOffset": 165,
+      "endOffset": 390,
+      "codeContent": "public Usuario() {}\n\n    public Usuario(String email, String nombre, String password) {\n        tIntellijIdeaRulezzz \n        this.email \u003d email;\n        this.nombre \u003d nombre;\n        this.password \u003d password;\n    }\n    \n    ",
+      "aiProbability": 95,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 10
+    },
+    {
+      "filePath": "/Video.java",
+      "timestamp": 1762863088888,
+      "startOffset": 700,
+      "endOffset": 770,
+      "codeContent": "ublic void setIdUsuario(int idUsuario) { this.idUsuario \u003d idUsuario; }",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/model/Video.java",
+      "timestamp": 1762863105955,
+      "startOffset": 126,
+      "endOffset": 148,
+      "codeContent": "rivate int id_usuario;",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/dao/VideoDAO.java",
+      "timestamp": 1762863412445,
+      "startOffset": 1923,
+      "endOffset": 1944,
+      "codeContent": "\n                    ",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 2
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/utils/Database.java",
+      "timestamp": 1762863825816,
+      "startOffset": 403,
+      "endOffset": 675,
+      "codeContent": "String sqlVideos \u003d \"CREATE TABLE IF NOT EXISTS videos (\" +\n                    \"id INTEGER PRIMARY KEY AUTOINCREMENT,\" +\n                    \"nombre TEXT NOT NULL,\" +\n                    \"link TEXT NOT NULL\" +\n                    \");\";\n            stmt.execute(sqlVideos);",
+      "aiProbability": 70,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 6
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/utils/Database.java",
+      "timestamp": 1762863831105,
+      "startOffset": 664,
+      "endOffset": 823,
+      "codeContent": "CREATE TABLE IF NOT EXISTS videos (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    nombre TEXT NOT NULL,\n    link TEXT NOT NULL,\n    liked INTEGER DEFAULT 0\n);\n",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 7
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/model/Video.java",
+      "timestamp": 1762863978519,
+      "startOffset": 709,
+      "endOffset": 746,
+      "codeContent": "public\u003c__TMP__\u003e __TMP__ setLiked() {}",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "/VideoDAO.java",
+      "timestamp": 1762864014772,
+      "startOffset": 2139,
+      "endOffset": 2427,
+      "codeContent": "\n\n    public void toggleLike(int id) {\n        List\u003cVideo\u003e videos \u003d listar();\n        for (Video v : videos) {\n            if (v.getId() \u003d\u003d id) {\n                v.setLiked(!v.gIntellijIdeaRulezzzLiked());\n                break;\n            }\n        }\n        guardarLista(videos);\n    }",
+      "aiProbability": 95,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 12
+    },
+    {
+      "filePath": "/VideoDAO.java",
+      "timestamp": 1762864014775,
+      "startOffset": 1946,
+      "endOffset": 1989,
+      "codeContent": "interactuar();//???????????????????????????",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/dao/VideoDAO.java",
+      "timestamp": 1762864020465,
+      "startOffset": 2465,
+      "endOffset": 2504,
+      "codeContent": "java.util.List\u003ccom.ejemplo.model.Video\u003e",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/dao/VideoDAO.java",
+      "timestamp": 1762865350457,
+      "startOffset": 2288,
+      "endOffset": 2616,
+      "codeContent": "String sql \u003d \"UPDATE videos SET liked \u003d CASE liked WHEN 1 THEN 0 ELSE 1 END WHERE id \u003d ?\";\n    try (Connection conn \u003d Database.getConnection();\n         PreparedStatement ps \u003d conn.prepareStatement(sql)) {\n        ps.setInt(1, id);\n        ps.executeUpdate();\n    } catch (SQLException e) {\n        e.printStackTrace();\n    }\n}\n",
+      "aiProbability": 95,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 10
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/dao/VideoDAO.java",
+      "timestamp": 1762865530076,
+      "startOffset": 1231,
+      "endOffset": 1267,
+      "codeContent": "v.setLiked(rs.getInt(\"liked\") \u003d\u003d 1);",
+      "aiProbability": 70,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/servlet/VideoServlet.java",
+      "timestamp": 1762865932627,
+      "startOffset": 0,
+      "endOffset": 60,
+      "codeContent": "package com.ejemplo.servlet;\n\npublic class VideoServlet {\n}\n",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 5
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/servlet/VideoServlet.java",
+      "timestamp": 1762865936905,
+      "startOffset": 30,
+      "endOffset": 1681,
+      "codeContent": "import com.ejemplo.dao.VideoDAO;\nimport com.ejemplo.model.Video;\n\nimport javax.servlet.ServletException;\nimport javax.servlet.annotation.WebServlet;\nimport javax.servlet.http.*;\nimport java.io.IOException;\nimport java.util.List;\n\n@WebServlet(\"/videos\")\npublic class VideoServlet extends HttpServlet {\n\n    private final VideoDAO dao \u003d new VideoDAO();\n\n    @Override\n    protected void doGet(HttpServletRequest req, HttpServletResponse resp)\n            throws ServletException, IOException {\n\n        String action \u003d req.getParameter(\"action\");\n        String idParam \u003d req.getParameter(\"id\");\n\n        if (action !\u003d null \u0026\u0026 idParam !\u003d null) {\n            int id \u003d Integer.parseInt(idParam);\n            switch (action) {\n                case \"delete\":\n                    dao.eliminar(id);\n                    break;\n                case \"like\":\n                    dao.toggleLike(id);\n                    break;\n            }\n            resp.sendRedirect(\"videos\");\n            return;\n        }\n\n        // Listar todos los videos\n        List\u003cVideo\u003e lista \u003d dao.listar();\n        req.setAttribute(\"videos\", lista);\n        req.getRequestDispatcher(\"videos.jsp\").forward(req, resp);\n    }\n\n    @Override\n    protected void doPost(HttpServletRequest req, HttpServletResponse resp)\n            throws ServletException, IOException {\n\n        String nombre \u003d req.getParameter(\"nombre\");\n        String link \u003d req.getParameter(\"link\");\n\n        if (nombre !\u003d null \u0026\u0026 link !\u003d null \u0026\u0026 !nombre.isEmpty() \u0026\u0026 !link.isEmpty()) {\n            Video v \u003d new Video(nombre, link);\n            dao.agregar(v);\n        }\n\n        resp.sendRedirect(\"videos\");\n    }",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 55
+    },
+    {
+      "filePath": "C:/Users/Victoria Lena/Documents/UM/2doSem 2025/Prog Avanzada/Entregable4GutierrezLena/src/main/java/com/ejemplo/servlet/VideoServlet.java",
+      "timestamp": 1762867480766,
+      "startOffset": 643,
+      "endOffset": 702,
+      "codeContent": "req.getRequestDispatcher(\"videos.jsp\").forward(req, resp);\n",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 2
+    }
+  ],
+  "toolStats": {
+    "AI Assistant": {
+      "usageCount": 39,
+      "totalLines": 343
+    }
+  }
+}
