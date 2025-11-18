@@ -1,10 +1,9 @@
 package com.ejemplo.dao;
 
-import java.lang.reflect.Field;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;  // <-- ESTE FALTABA
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,22 +12,18 @@ import com.ejemplo.utils.Database;
 
 public class VideoDAOTest {
 
-    private static VideoDAO dao;
+    private VideoDAO dao;
 
     @BeforeEach
-    void setUpDB() throws Exception {
-        // Cambiar la DB a memoria
-        Field dbUrlField = Database.class.getDeclaredField("DB_URL");
-        dbUrlField.setAccessible(true);
-        dbUrlField.set(null, "jdbc:sqlite:file:memdb1?mode=memory&cache=shared");
+    void setUpDB() {
+        // DB exclusiva para tests (archivo separado)
+        Database.overrideUrl("jdbc:sqlite:test-db.sqlite");
 
-        // Crear la tabla en memoria
-        Database.crearTablaParaTests();
+        // Crear tabla para tests
+        Database.crearTablaVideos();
 
-        // Instanciar DAO
         dao = new VideoDAO();
     }
-
 
     @Test
     void testAgregarYListar() {
@@ -47,27 +42,24 @@ public class VideoDAOTest {
     @Test
     void testToggleLike() {
         Video v = new Video();
-        v.setNombre("Test Like");
-        v.setLink("https://example.com");
-
+        v.setNombre("LikeTest");
+        v.setLink("https://a.com");
         dao.agregar(v);
 
-        List<Video> lista1 = dao.listar();
-        int id = lista1.get(0).getId();
+        int id = dao.listar().get(0).getId();
 
         dao.toggleLike(id);
 
-        List<Video> lista2 = dao.listar();
-        assertTrue(lista2.get(0).isLiked());
+        assertTrue(dao.listar().get(0).isLiked());
     }
 
     @Test
     void testToggleFavorite() {
         Video v = new Video();
-        v.setNombre("Test Fav");
-        v.setLink("https://example.com");
-
+        v.setNombre("FavTest");
+        v.setLink("https://a.com");
         dao.agregar(v);
+
         int id = dao.listar().get(0).getId();
 
         dao.toggleFavorite(id);
@@ -78,9 +70,8 @@ public class VideoDAOTest {
     @Test
     void testEliminar() {
         Video v = new Video();
-        v.setNombre("Eliminar Test");
-        v.setLink("link");
-
+        v.setNombre("EliminarTest");
+        v.setLink("https://a.com");
         dao.agregar(v);
 
         int id = dao.listar().get(0).getId();

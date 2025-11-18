@@ -3,37 +3,51 @@ pipeline {
 
     stages {
 
-        stage('Clonar repositorio') {
+        stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/mgutierrez6/Entregable4-ProgAvanzada-real.git'
+                echo ">>> Clonando el repositorio..."
+                checkout scm
             }
         }
 
-        stage('Compilar') {
+        stage('Build') {
             steps {
-                bat 'mvn clean package'
+                echo ">>> Ejecutando mvn clean package (sin tests por ahora)..."
+                sh 'mvn clean package -DskipTests'
             }
         }
 
-        stage('Test') {
+        stage('Run Tests') {
             steps {
-                bat 'mvn test'
+                echo ">>> Ejecutando tests unitarios..."
+                sh 'mvn test'
             }
         }
 
-        stage('Deploy en Windows') {
+        stage('Package') {
             steps {
-                bat 'deploy-windows.bat'
+                echo ">>> Empaquetando WAR final..."
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Deploy con Tomcat (Windows)') {
+            steps {
+                echo ">>> Ejecutando script de deployment para Windows..."
+
+                bat """
+                    deploy-windows.bat
+                """
             }
         }
     }
 
     post {
         success {
-            echo 'Pipeline ejecutado correctamente.'
+            echo ">>> Pipeline completado con éxito ✔"
         }
         failure {
-            echo 'Falló la pipeline.'
+            echo ">>> Falló el pipeline ✘ — revisar logs"
         }
     }
 }
