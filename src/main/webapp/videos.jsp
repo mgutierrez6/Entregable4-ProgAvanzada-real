@@ -3,12 +3,12 @@
 <%@ page import="java.util.List" %>
 <html>
 <head>
-    <title>🎬 Mi Playlist. CAMBIO</title>
+    <title>🎬 Mi Playlist</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="container mt-4">
 
-<h1 class="mb-4">🎬 Mi Playlist</h1>
+<h1 class="mb-4">🎬 Mi Playlist</h1> 
 
 <div class="mb-3">
     <a href="videos?action=favoritos" class="btn btn-warning">
