@@ -52,7 +52,26 @@ public class Database {
         }
     }
 
+    public static void crearTablaParaTests() {
+        try (Connection conn = getConnection()) {
+            String sql = """
+                CREATE TABLE IF NOT EXISTS videos (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    nombre TEXT NOT NULL,
+                    link TEXT NOT NULL,
+                    liked INTEGER DEFAULT 0,
+                    favorite INTEGER DEFAULT 0
+                );
+            """;
+            conn.createStatement().execute(sql);
+            System.out.println(">>> TABLA 'videos' creada PARA TESTS");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(DB_URL);
     }
+
 }

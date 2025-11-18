@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+
         stage('Clonar repositorio') {
             steps {
                 git branch: 'main', url: 'https://github.com/mgutierrez6/Entregable4-ProgAvanzada-real.git'
@@ -14,19 +15,25 @@ pipeline {
             }
         }
 
-        stage('Desplegar en Tomcat') {
+        stage('Test') {
             steps {
-                bat 'copy target\\Entregable4GutierrezLena.war "C:\\Tomcat-10.1.48\\webapps\\"'
+                bat 'mvn test'
+            }
+        }
+
+        stage('Deploy en Windows') {
+            steps {
+                bat 'deploy-windows.bat'
             }
         }
     }
 
     post {
         success {
-            echo 'Exito!'
+            echo 'Pipeline ejecutado correctamente.'
         }
         failure {
-            echo 'Error'
+            echo 'Falló la pipeline.'
         }
     }
 }

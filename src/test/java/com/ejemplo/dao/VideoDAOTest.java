@@ -1,41 +1,34 @@
 package com.ejemplo.dao;
 
-import com.ejemplo.model.Video;
-import com.ejemplo.utils.Database;
-import org.junit.jupiter.api.*;
-
-import java.sql.Connection;
-import java.sql.Statement;
+import java.lang.reflect.Field;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;  // <-- ESTE FALTABA
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import com.ejemplo.model.Video;
+import com.ejemplo.utils.Database;
 
 public class VideoDAOTest {
 
     private static VideoDAO dao;
 
-    @BeforeAll
-    static void setupDatabase() throws Exception {
-        // Cambiamos la DB a una temporal en memoria
-        Database.overrideUrl("jdbc:sqlite::memory:");
+    @BeforeEach
+    void setUpDB() throws Exception {
+        // Cambiar la DB a memoria
+        Field dbUrlField = Database.class.getDeclaredField("DB_URL");
+        dbUrlField.setAccessible(true);
+        dbUrlField.set(null, "jdbc:sqlite::memory:");
 
-        // Creamos la tabla manualmente en la DB de tests
-        try (Connection conn = Database.getConnection();
-             Statement st = conn.createStatement()) {
+        // Crear la tabla en memoria
+        Database.crearTablaParaTests();
 
-            st.execute("""
-                CREATE TABLE videos (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    nombre TEXT NOT NULL,
-                    link TEXT NOT NULL,
-                    liked INTEGER DEFAULT 0,
-                    favorite INTEGER DEFAULT 0
-                );
-            """);
-        }
-
+        // Instanciar DAO
         dao = new VideoDAO();
     }
+
 
     @Test
     void testAgregarYListar() {
