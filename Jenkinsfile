@@ -13,21 +13,21 @@ pipeline {
         stage('Build') {
             steps {
                 echo ">>> Ejecutando mvn clean package (sin tests por ahora)..."
-                sh 'mvn clean package -DskipTests'
+                bat 'mvn clean package -DskipTests'
             }
         }
 
         stage('Run Tests') {
             steps {
                 echo ">>> Ejecutando tests unitarios..."
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
 
         stage('Package') {
             steps {
                 echo ">>> Empaquetando WAR final..."
-                sh 'mvn clean package'
+                bat 'mvn clean package'
             }
         }
 
