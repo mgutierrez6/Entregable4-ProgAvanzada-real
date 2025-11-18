@@ -22,21 +22,33 @@
 <div class="col-md-4 mb-3">
     <div class="card h-100">
         <%
-            String link = v.getLink();
-            String videoId = "";
-            
-            // Extraer ID de diferentes formatos de URL de YouTube
-            if (link.contains("youtube.com/watch?v=")) {
-                videoId = link.split("v=")[1].split("&")[0];
-            } else if (link.contains("youtu.be/")) {
-                videoId = link.split("youtu.be/")[1].split("\\?")[0];
-            } else {
-                // Si ya es solo el ID
-                videoId = link;
-            }
+            List<Video> videos = (List<Video>) request.getAttribute("videos");
+            if (videos != null && !videos.isEmpty()) {
+                for (Video v : videos) {
+
+                    String link = v.getLink();
+                    String videoId = link;
+
+                    int idxV = link.indexOf("v=");
+                    if (idxV != -1) {
+                        videoId = link.substring(idxV + 2);
+                        int amp = videoId.indexOf("&");
+                        if (amp != -1) videoId = videoId.substring(0, amp);
+                    } else if (link.contains("youtu.be/")) {
+                        int slash = link.lastIndexOf("/");
+                        videoId = link.substring(slash + 1);
+                    } else if (link.contains("/embed/")) {
+                        int embedIdx = link.indexOf("/embed/");
+                        if (embedIdx != -1) {
+                            videoId = link.substring(embedIdx + 7);
+                        }
+                    }
+
+                    String thumbnailUrl = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+                    String watchUrl = "https://www.youtube.com/watch?v=" + videoId;
         %>
         <a href="videos?action=ver&id=<%= v.getId() %>">
-            <img src="https://img.youtube.com/vi/<%= videoId %>/hqdefault.jpg" class="card-img-top">
+            <img src="thumbnailUrl" class="card-img-top">
         </a>
         <div class="card-body text-center">
             <h5><%= v.getNombre() %></h5>
