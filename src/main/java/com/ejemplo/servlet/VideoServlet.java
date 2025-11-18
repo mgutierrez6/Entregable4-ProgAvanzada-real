@@ -113,4 +113,67 @@ public class VideoServlet extends HttpServlet {
 
         response.sendRedirect("videos");
     }
+
+    // protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    //     String action = request.getParameter("action");
+        
+    //     switch (action) {
+    //         case "like" -> handleLike(request, response);
+    //         case "favorite" -> handleFavorite(request, response);
+    //         case "add" -> handleAddVideo(request, response);
+    //         default -> handleUnknownAction(response);
+    //     }
+    //     }
+
+    //     private void handleLike(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    //         int id = Integer.parseInt(request.getParameter("id"));
+    //         service.toggleLike(id);
+    //         sendJsonResponse(response, "{\"status\":\"ok\"}");
+    //     }
+
+    //     private void handleFavorite(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    //         int id = Integer.parseInt(request.getParameter("id"));
+    //         service.toggleFavorite(id);
+    //         sendJsonResponse(response, "{\"status\":\"ok\"}");
+    //     }
+
+    //     private void handleAddVideo(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    //         String nombre = request.getParameter("nombre");
+    //         String rawLink = request.getParameter("link");
+            
+    //         if (!isValidInput(nombre, rawLink)) {
+    //             response.sendRedirect("videos");
+    //             return;
+    //         }
+            
+    //         String embedLink = convertToEmbedUrl(rawLink);
+    //         service.agregar(nombre, embedLink);
+    //         response.sendRedirect("videos");
+    //     }
+
+    //     // Métodos utilitarios creados
+    //     private void handleUnknownAction(HttpServletResponse response) {
+    //         response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+    //     }
+
+    //     private boolean isValidInput(String nombre, String link) {
+    //         return nombre != null && !nombre.isEmpty() && 
+    //             link != null && !link.isEmpty();
+    //     }
+
+    //     private String convertToEmbedUrl(String rawUrl) {
+    //         if (rawUrl.contains("youtu.be/")) {
+    //             return "https://www.youtube.com/embed/" +
+    //                 rawUrl.substring(rawUrl.lastIndexOf("/") + 1).split("\\?")[0];
+    //         } else if (rawUrl.contains("watch?v=")) {
+    //             return "https://www.youtube.com/embed/" +
+    //                 rawUrl.split("v=")[1].split("&")[0];
+    //         }
+    //         return rawUrl;
+    //     }
+
+    //     private void sendJsonResponse(HttpServletResponse response, String json) throws IOException {
+    //         response.setContentType("application/json");
+    //         response.getWriter().write(json);
+    //     }
 }
