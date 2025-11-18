@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clonar repositorio') {
             steps {
-                git branch: 'real', url: 'https://github.com/VickyLena/Entregable4-ProgAvanzada-real.git'
+                git branch: 'main', url: 'https://github.com/VickyLena/Entregable4-ProgAvanzada-real.git'
             }
         }
 
