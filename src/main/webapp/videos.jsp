@@ -8,7 +8,7 @@
 </head>
 <body class="container mt-4">
 
-<h1 class="mb-4">🎬 Mi Playlist</h1> 
+<h1 class="mb-4">🎬 Mi Playlist- CAMBIADA</h1> 
 
 <div class="mb-3">
     <a href="videos?action=favoritos" class="btn btn-warning">
