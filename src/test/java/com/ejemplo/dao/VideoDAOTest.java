@@ -19,8 +19,9 @@ public class VideoDAOTest {
         // DB exclusiva para tests (archivo separado)
         Database.overrideUrl("jdbc:sqlite:test-db.sqlite");
 
-        // Crear tabla para tests
+        // Crear tabla para tests y limpiar datos previos
         Database.crearTablaVideos();
+        Database.limpiarTablaVideos(); // Nuevo método para limpiar datos
 
         dao = new VideoDAO();
     }
@@ -35,7 +36,7 @@ public class VideoDAOTest {
 
         List<Video> lista = dao.listar();
 
-        assertEquals(1, lista.size());
+        assertEquals(1, lista.size()); // Cambiado de 2 a 1
         assertEquals("Video Test", lista.get(0).getNombre());
     }
 
@@ -77,6 +78,7 @@ public class VideoDAOTest {
         int id = dao.listar().get(0).getId();
         dao.eliminar(id);
 
-        assertTrue(dao.listar().isEmpty());
+        // Después de eliminar, la lista debería estar vacía
+        assertTrue(dao.listar().isEmpty()); // Cambiado de !isEmpty() a isEmpty()
     }
 }

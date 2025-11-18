@@ -50,6 +50,16 @@ public class Database {
         }
     }
 
+    public static void limpiarTablaVideos() {
+        try (Connection conn = getConnection()) {
+            String sql = "DELETE FROM videos;";
+            conn.createStatement().execute(sql);
+            System.out.println(">>> TABLA 'videos' limpiada");
+        } catch (Exception e) {
+            throw new RuntimeException("Error limpiando tabla", e);
+        }
+    }
+
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(DB_URL);
     }
