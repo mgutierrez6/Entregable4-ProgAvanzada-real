@@ -20,7 +20,7 @@ public class VideoDAOTest {
         // Cambiar la DB a memoria
         Field dbUrlField = Database.class.getDeclaredField("DB_URL");
         dbUrlField.setAccessible(true);
-        dbUrlField.set(null, "jdbc:sqlite::memory:");
+        dbUrlField.set(null, "jdbc:sqlite:file:memdb1?mode=memory&cache=shared");
 
         // Crear la tabla en memoria
         Database.crearTablaParaTests();
