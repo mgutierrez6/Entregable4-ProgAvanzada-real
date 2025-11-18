@@ -21,8 +21,22 @@
 
 <div class="col-md-4 mb-3">
     <div class="card h-100">
-        <a href="https://www.youtube.com/watch?v=<%= v.getLink() %>" target="_blank">
-            <img src="https://img.youtube.com/vi/<%= v.getLink() %>/hqdefault.jpg" class="card-img-top">
+        <%
+            String link = v.getLink();
+            String videoId = "";
+            
+            // Extraer ID de diferentes formatos de URL de YouTube
+            if (link.contains("youtube.com/watch?v=")) {
+                videoId = link.split("v=")[1].split("&")[0];
+            } else if (link.contains("youtu.be/")) {
+                videoId = link.split("youtu.be/")[1].split("\\?")[0];
+            } else {
+                // Si ya es solo el ID
+                videoId = link;
+            }
+        %>
+        <a href="videos?action=ver&id=<%= v.getId() %>">
+            <img src="https://img.youtube.com/vi/<%= videoId %>/hqdefault.jpg" class="card-img-top">
         </a>
         <div class="card-body text-center">
             <h5><%= v.getNombre() %></h5>
