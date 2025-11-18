@@ -48,7 +48,7 @@
                     String watchUrl = "https://www.youtube.com/watch?v=" + videoId;
         %>
         <a href="videos?action=ver&id=<%= v.getId() %>">
-            <img src="thumbnailUrl" class="card-img-top">
+            <img src="<%= thumbnailUrl %>" class="card-img-top">
         </a>
         <div class="card-body text-center">
             <h5><%= v.getNombre() %></h5>
